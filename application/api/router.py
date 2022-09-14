@@ -79,7 +79,7 @@ def import_units(items: UnitImportRequest,
             session.add(Unit(**fileunit.dict()))
         if file_set & parent_set != set():
             raise HTTPException(status_code=400, detail='parent id links to a file!')
-        if id_set < parent_set:
+        if not (id_set >= parent_set):
             raise HTTPException(status_code=400, detail='parent id does not exist!')
 
         session.commit()
