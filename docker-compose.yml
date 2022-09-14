@@ -28,7 +28,7 @@ services:
     volumes:
       - ./application:/application
     privileged: true
-    command: bash -c "alembic upgrade head && python wait.py && python main.py"
+    command: bash -c "alembic upgrade head && python main.py"
 
   database:
     image: postgres:14.3
